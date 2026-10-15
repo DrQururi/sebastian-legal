@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sebastian — Privacy Policy &amp; Terms of Use</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    background: #F4F1EA;
+    color: #2E2A24;
+    line-height: 1.8;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 20px 80px;
+  }
+  h1 {
+    font-size: 26px;
+    margin-top: 40px;
+    color: #3C4A5A;
+    border-bottom: 3px solid #B08D57;
+    padding-bottom: 10px;
+  }
+  h2 {
+    font-size: 19px;
+    margin-top: 32px;
+    color: #5A6B7B;
+  }
+  p, li { font-size: 15px; }
+  ul { padding-left: 22px; }
+  .updated { color: #8A8378; font-size: 13px; margin-bottom: 30px; }
+  .nav {
+    display: flex; gap: 16px; margin-bottom: 30px;
+    font-size: 14px;
+  }
+  .nav a { color: #B08D57; text-decoration: none; font-weight: 600; }
+  a { color: #B08D57; }
+  .card {
+    background: #fff; border-radius: 14px; padding: 20px 24px;
+    margin-bottom: 20px; border: 1px solid #E6DECF;
+  }
+  footer {
+    margin-top: 60px; font-size: 12px; color: #A89A8E; text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="#privacy">Privacy Policy</a>
+  <a href="#terms">Terms of Use (EULA)</a>
+  <a href="../">日本語</a>
+</div>
+
+<h1 id="privacy">Sebastian Privacy Policy</h1>
+<p class="updated">Last updated: September 30, 2026</p>
+
+<div class="card">
+<p>
+"Sebastian" (the "App") is an AI butler app that lets you create calendar events and reminders just by
+speaking or typing. The developer and operator of this App (the "Operator") takes your privacy seriously.
+<strong>The App does not require any account registration or sign‑in, and does not collect personal
+information such as your name, contact details, or location.</strong>
+Text parsing is performed using the cloud AI service <strong>Google Gemini</strong>, regardless of device type
+or subscription status (see below). Nothing is sent until you give in‑app consent beforehand.
+In addition, the App sends <strong>anonymous usage statistics</strong> to the Operator's own server to help
+improve the App (you can turn this off at any time — see "3‑3. Anonymous usage statistics"). Details follow below.
+</p>
+</div>
+
+<h2>1. Information we do NOT collect</h2>
+<div class="card">
+<p>
+The App does <strong>not collect, transmit, or store</strong> the following:
+</p>
+<ul>
+  <li>Personal information such as your name, email address, or phone number (there is no account/sign‑in system at all)</li>
+  <li>Location data</li>
+  <li>Contacts, photos, or other on‑device data</li>
+  <li>The contents of events/reminders already saved in your calendar (see Section 4)</li>
+  <li>Advertising identifiers (IDFA) or any information used to track you across other companies' apps or websites</li>
+</ul>
+<p>
+Only two kinds of data are ever sent: ① <strong>the text you type or speak</strong>, for chat parsing (only after
+consent — Sections 2–3), and ② <strong>anonymous usage statistics</strong> for app improvement (Section 3‑3).
+</p>
+</div>
+
+<h2>2. How text is parsed</h2>
+<div class="card">
+<p>
+Parsing of text you type into the chat (extracting the event title, date/time, and alert) works the same
+way for every device and for both free and paid users:
+</p>
+<ul>
+  <li>
+    <strong>Cloud parsing (all devices, free and Pro alike):</strong>
+    Only the text you typed is sent, via the Operator's relay server (Supabase), to
+    <strong>Google's Gemini API</strong>, and the parsed result is returned (see Section 3 below).
+    Most requests are handled on the free tier of the Gemini API; if that tier is congested or its limit is
+    reached, the Operator's own pay‑as‑you‑go backup key may be used instead (the destination, content, and
+    handling are identical either way).
+    "Sebastian Pro" subscribers get a higher daily number of parses, but use the exact same Gemini service as
+    free users.
+    <br>Note: earlier versions used on‑device parsing, and a different AI service for Pro subscribers only.
+    To keep accuracy consistent, <strong>since September 30, 2026 every device and plan uses Google Gemini
+    exclusively</strong>.
+  </li>
+  <li>
+    <strong>Without parsing:</strong> If you do not consent to the above, or if you are offline, you can still
+    use every feature of the App by adding and editing events/reminders manually.
+  </li>
+</ul>
+</div>
+
+<h2>3. About cloud parsing (Google Gemini)</h2>
+<div class="card">
+<p>
+Whenever chat parsing is used, <strong>the text you typed is sent to Google's servers</strong>, regardless of
+your device or subscription status. Because this is not an on‑device process, we disclose the following:
+</p>
+<ul>
+  <li><strong>We ask for your in‑app consent before anything is sent.</strong> The first time cloud parsing is needed, an in‑app screen clearly states what is sent (only the text you typed) and where it goes (the Google Gemini API), and asks for your consent. <strong>Nothing is sent until you consent.</strong> You can withdraw consent at any time from Settings &gt; External AI Parsing (Cloud) — after withdrawing, nothing more is sent.</li>
+  <li>Only <strong>the text to be parsed</strong> is sent. We never send your name, contacts, calendar contents, or location.</li>
+  <li>Most parsing happens on <strong>Google's free tier (Gemini API free usage tier)</strong>. Under the free tier's terms, submitted content <strong>may be used by Google to improve its services and models</strong>. Please avoid entering sensitive information. If the free tier is congested or its limit is reached, the Operator's own pay‑as‑you‑go backup key may be used, but the destination, content, and purpose remain unchanged. Google's handling of this data is governed by the <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Gemini API Additional Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
+  <li>"Sebastian Pro" subscribers are sent to the same Google Gemini API. Subscribers simply get more parses per day than free users — what is sent, where it goes, and how it is handled are identical.</li>
+  <li>To stay within the free tier and manage usage limits, the relay server assigns an <strong>anonymous random ID per device</strong>. This ID cannot be used to identify you personally.</li>
+  <li>The Operator does not store, analyze, or share your text with any third party beyond relaying it for parsing.</li>
+  <li>If you don't want to use cloud parsing, choose "Not now" on the consent screen, or turn it off from Settings &gt; External AI Parsing (Cloud). You can still add events manually from the "+" button without using chat, with full functionality (and in that case nothing is ever sent externally).</li>
+</ul>
+</div>
+
+<h2>3-2. Help improve parsing accuracy (optional, off by default)</h2>
+<div class="card">
+<p>
+The App has an <strong>optional feature</strong> that helps gradually improve parsing accuracy for everyone.
+It is only active if you explicitly turn on the "<strong>Help improve parsing</strong>" toggle inside
+Settings &gt; External AI Parsing (Cloud). <strong>It is off by default</strong>, and nothing related to this
+feature is ever sent while it is off.
+</p>
+<ul>
+  <li><strong>What is sent:</strong> Only when you correct and re‑save an AI parsing result do we send three pieces of data: the text you typed, the AI's original (incorrect) result, and the corrected result you confirmed. If the AI was already correct and you made no correction, <strong>nothing is sent</strong>.</li>
+  <li><strong>Anonymity:</strong> We never send your name, contacts, location, or raw device ID. For rough aggregate statistics only, we use a one‑way, irreversible hash of the device ID, which <strong>cannot be used to identify you</strong>.</li>
+  <li><strong>How it's used:</strong> Collected corrections are used only to give the AI "good examples" or "things to avoid" for similar future inputs, improving accuracy and reducing repeated mistakes. This is sent to the same destination as parsing (Google Gemini API).</li>
+  <li><strong>You can stop at any time</strong> by turning the same toggle off — nothing more will be sent afterward.</li>
+</ul>
+</div>
+
+<h2>3-3. Anonymous usage statistics (for app improvement)</h2>
+<div class="card">
+<p>
+To understand which features are used and how, in order to improve the App, we send the following
+<strong>anonymous data</strong> to the Operator's own server (Supabase). This is a separate mechanism from the
+AI parsing above, and none of it is sent to any external AI service.
+</p>
+<ul>
+  <li>Event names (e.g. app launch, event registered) and their timestamps</li>
+  <li>Session length and time of day the App was used</li>
+  <li>App version and iOS version</li>
+  <li>An anonymous install ID (a random string generated the first time you launch the App; it is never linked to your name, email, device ID, or advertising ID, and changes if you delete and reinstall the App)</li>
+</ul>
+<p>
+<strong>This never includes any text you typed, the contents of your events/reminders, dates/times, or
+location.</strong> We do not track you across other companies' apps or websites, and we do not use advertising
+identifiers.
+</p>
+<p>
+You can turn this off at any time from Settings &gt; "Send usage data" (toggle "Send anonymous usage
+statistics" off). Once off, nothing more is sent, and any not‑yet‑sent data is discarded.
+</p>
+</div>
+
+<h2>4. Access to your Calendar and Reminders</h2>
+<div class="card">
+<p>
+The App requests permission to access the iOS built‑in <strong>Calendar / Reminders (EventKit)</strong> so it
+can create, edit, and display events and reminders you have approved.
+</p>
+<ul>
+  <li>This data is stored only on your device and in your own iCloud (Apple) account.</li>
+  <li>The Operator of this App has no ability to view, retrieve, or transmit this data.</li>
+  <li>Events and reminders are only ever created after you review and approve them on a confirmation card.</li>
+  <li>You can change or revoke this permission at any time from the iOS Settings app.</li>
+</ul>
+</div>
+
+<h2>5. Third parties &amp; advertising</h2>
+<div class="card">
+<p>
+The App does not include any advertising SDKs or third‑party tracking SDKs. We never share your data with
+third parties for advertising or marketing purposes. Data leaves the App only in two ways: ① text you typed
+is sent to Google (Gemini API) for the sole purpose of parsing it, after you've consented in‑app (Sections
+2–3); ② anonymous usage statistics are sent to the Operator's own server to improve the App (Section 3‑3 —
+this is not a third‑party disclosure).
+</p>
+</div>
+
+<h2>6. Contact</h2>
+<div class="card">
+<p>
+If you have any questions about this policy, please contact us by email at
+<a href="mailto:dr.qururi+sebastian@gmail.com">dr.qururi+sebastian@gmail.com</a>.
+</p>
+</div>
+
+<h2>7. Changes to this policy</h2>
+<div class="card">
+<p>This policy may be changed without prior notice. Important changes will be announced within the App.</p>
+</div>
+
+
+<h1 id="terms">Sebastian Terms of Use (EULA)</h1>
+<p class="updated">Last updated: September 30, 2026</p>
+
+<div class="card">
+<h2 style="margin-top:0">Service description</h2>
+<p>
+"Sebastian" is a practical tool that parses free‑form text you enter (with your consent) using cloud AI, and
+— after you confirm the result — creates or edits events and reminders in the iOS Calendar and Reminders apps.
+You can also add and edit events/reminders manually at any time.
+</p>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">System requirements</h2>
+<p>
+Automatic AI parsing works via the cloud, sending your text to <strong>Google's Gemini API</strong> for every
+device and subscription tier. This only happens after you consent on an in‑app confirmation screen, and you
+can turn it off at any time from Settings (see Privacy Policy Sections 2–3). Because the free tier has a
+limited quota, parsing may be temporarily unavailable during busy periods or once you reach your daily limit.
+In that case, or if you choose not to use parsing, you can still add and edit events/reminders manually.
+</p>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">Sebastian Pro (auto‑renewing subscription)</h2>
+<ul>
+  <li>"Sebastian Pro" is an optional <strong>auto‑renewing monthly subscription</strong>. Subscribing removes the daily limit on cloud parsing (Google Gemini). The underlying AI service is the same Gemini used by free users — only the number of daily parses changes. Without a subscription, you still get a few free parses per day plus unlimited manual entry.</li>
+  <li>Term: 1 month / Price: <strong>$2.99 USD</strong> in the U.S. storefront (prices vary by store/region and are shown at the time of purchase).</li>
+  <li>Payment is charged to your Apple ID at the time of purchase, and the subscription renews automatically at the same price unless cancelled at least 24 hours before the end of the current period.</li>
+  <li>You may cancel at any time after purchase from iOS Settings &gt; Apple ID &gt; Subscriptions. Refunds for unused periods follow Apple's policies.</li>
+  <li>Family Sharing is not supported.</li>
+  <li>You can manage or restore your purchase from within the App under Settings &gt; "Sebastian Pro".</li>
+</ul>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">Calendar Pro (Ad-Free) (auto-renewing subscription)</h2>
+<ul>
+  <li>"Calendar Pro (Ad-Free)" is an optional <strong>auto‑renewing monthly subscription</strong> that hides the banner ad so you can see more of the calendar. It does not increase your daily AI parsing limit (for that, see "Sebastian Pro" above). It belongs to the same subscription group as "Sebastian Pro", so you can only be subscribed to one of the two at a time (subscribing to one switches you from the other).</li>
+  <li>Term: 1 month / Price: <strong>$0.99 USD</strong> in the U.S. storefront (prices vary by store/region and are shown at the time of purchase).</li>
+  <li>Payment, renewal, cancellation, and refunds follow the same terms as "Sebastian Pro" above.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">Disclaimer</h2>
+<ul>
+  <li>The App presents AI‑generated parsing results, but does not guarantee their accuracy. Always review the confirmation card before an event or reminder is created.</li>
+  <li>The Operator is not liable for any damages arising from use of the App.</li>
+  <li>You are responsible for managing the events and reminders you create.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">Changes to these terms</h2>
+<p>These terms may be changed without prior notice. Important changes will be announced within the App.</p>
+</div>
+
+<p>If you do not agree to these terms, please do not use the App.</p>
+
+<footer>
+  © 2026 Sebastian
+</footer>
+
+</body>
+</html>
