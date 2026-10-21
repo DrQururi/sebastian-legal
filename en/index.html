@@ -53,7 +53,7 @@
 </div>
 
 <h1 id="privacy">Sebastian Privacy Policy</h1>
-<p class="updated">Last updated: September 30, 2026</p>
+<p class="updated">Last updated: October 21, 2026</p>
 
 <div class="card">
 <p>
@@ -76,13 +76,13 @@ The App does <strong>not collect, transmit, or store</strong> the following:
 <ul>
   <li>Personal information such as your name, email address, or phone number (there is no account/sign‑in system at all)</li>
   <li>Location data</li>
-  <li>Contacts, photos, or other on‑device data</li>
+  <li>Contacts, your photo library, or other on‑device data (the only exception is <strong>the images you choose yourself</strong> in "Read events from images", which are loaded temporarily to be converted to text on your device; they are not stored and the image itself is never sent — Section 2‑2)</li>
   <li>The contents of events/reminders already saved in your calendar (see Section 4)</li>
   <li>Advertising identifiers (IDFA) or any information used to track you across other companies' apps or websites</li>
 </ul>
 <p>
-Only two kinds of data are ever sent: ① <strong>the text you type or speak</strong>, for chat parsing (only after
-consent — Sections 2–3), and ② <strong>anonymous usage statistics</strong> for app improvement (Section 3‑3).
+Only two kinds of data are ever sent: ① <strong>the text you type or speak, or text read from an image on your device</strong>, for chat parsing (only after
+consent — Sections 2, 2‑2 and 3), and ② <strong>anonymous usage statistics</strong> for app improvement (Section 3‑3).
 </p>
 </div>
 
@@ -95,7 +95,7 @@ way for every device and for both free and paid users:
 <ul>
   <li>
     <strong>Cloud parsing (all devices, free and Pro alike):</strong>
-    Only the text you typed is sent, via the Operator's relay server (Supabase), to
+    Only the text you typed (or, for image import, the text read from the image on your device) is sent, via the Operator's relay server (Supabase), to
     <strong>Google's Gemini API</strong>, and the parsed result is returned (see Section 3 below).
     Most requests are handled on the free tier of the Gemini API; if that tier is congested or its limit is
     reached, the Operator's own pay‑as‑you‑go backup key may be used instead (the destination, content, and
@@ -113,15 +113,29 @@ way for every device and for both free and paid users:
 </ul>
 </div>
 
+<h2>2‑2. Reading events from images (text is read on your device; images are not sent)</h2>
+<div class="card">
+<p>
+With the image button in the Chat screen you can choose photos, screenshots, or image files (up to 3 at a time), and the App lists the events it finds in them as candidates.
+</p>
+<ul>
+  <li><strong>Converting the image to text happens on your device (using Apple's text recognition).</strong> The image itself is never sent to the Operator or to Google, and is not stored (only a small thumbnail is kept in memory to display in the chat).</li>
+  <li>What is sent is <strong>only the text read from the image on your device</strong>. It goes to the same destination as cloud parsing in Section 3 (Google Gemini) and requires the same consent: nothing is sent before you consent or after you withdraw. If you had already consented before this feature existed, you are asked once, the first time you import an image.</li>
+  <li>Photos are chosen with the standard iOS photo picker, so <strong>the App does not ask for access to your whole photo library</strong>; only the images you pick are loaded. The same applies to "Choose from Files", "Use image from clipboard", and drag &amp; drop — only images you deliberately provide are used.</li>
+  <li>There is a limit (6,000 characters) on how much text is sent per request; anything beyond it is not sent.</li>
+  <li>If an image shows other people's names or similar, that text may be included in the recognized text and sent. Please take care with images containing other people's information.</li>
+</ul>
+</div>
+
 <h2>3. About cloud parsing (Google Gemini)</h2>
 <div class="card">
 <p>
-Whenever chat parsing is used, <strong>the text you typed is sent to Google's servers</strong>, regardless of
+Whenever chat parsing is used, <strong>the text you typed (or, for image import, the text read from your image on your device) is sent to Google's servers</strong>, regardless of
 your device or subscription status. Because this is not an on‑device process, we disclose the following:
 </p>
 <ul>
-  <li><strong>We ask for your in‑app consent before anything is sent.</strong> The first time cloud parsing is needed, an in‑app screen clearly states what is sent (only the text you typed) and where it goes (the Google Gemini API), and asks for your consent. <strong>Nothing is sent until you consent.</strong> You can withdraw consent at any time from Settings &gt; External AI Parsing (Cloud) — after withdrawing, nothing more is sent.</li>
-  <li>Only <strong>the text to be parsed</strong> is sent. We never send your name, contacts, calendar contents, or location.</li>
+  <li><strong>We ask for your in‑app consent before anything is sent.</strong> The first time cloud parsing is needed, an in‑app screen clearly states what is sent (only the text you typed, or text read from an image on your device; the image itself is never sent) and where it goes (the Google Gemini API), and asks for your consent. <strong>Nothing is sent until you consent.</strong> You can withdraw consent at any time from Settings &gt; External AI Parsing (Cloud) — after withdrawing, nothing more is sent.</li>
+  <li>Only <strong>the text to be parsed</strong> is sent (for image import, the text read from the image on your device). The image itself is never sent. We never send the name, contacts, calendar contents, or location that the App collects from your device. Note that text visible in an image (for example another person's name) may be sent as text so that events can be read from it.</li>
   <li>Most parsing happens on <strong>Google's free tier (Gemini API free usage tier)</strong>. Under the free tier's terms, submitted content <strong>may be used by Google to improve its services and models</strong>. Please avoid entering sensitive information. If the free tier is congested or its limit is reached, the Operator's own pay‑as‑you‑go backup key may be used, but the destination, content, and purpose remain unchanged. Google's handling of this data is governed by the <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Gemini API Additional Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
   <li>"Sebastian Pro" subscribers are sent to the same Google Gemini API. Subscribers simply get more parses per day than free users — what is sent, where it goes, and how it is handled are identical.</li>
   <li>To stay within the free tier and manage usage limits, the relay server assigns an <strong>anonymous random ID per device</strong>. This ID cannot be used to identify you personally.</li>
@@ -139,7 +153,7 @@ Settings &gt; External AI Parsing (Cloud). <strong>It is off by default</strong>
 feature is ever sent while it is off.
 </p>
 <ul>
-  <li><strong>What is sent:</strong> Only when you correct and re‑save an AI parsing result do we send three pieces of data: the text you typed, the AI's original (incorrect) result, and the corrected result you confirmed. If the AI was already correct and you made no correction, <strong>nothing is sent</strong>.</li>
+  <li><strong>What is sent:</strong> Only when you correct and re‑save an AI parsing result do we send three pieces of data: the text you typed (or the text read from an image), the AI's original (incorrect) result, and the corrected result you confirmed. If the AI was already correct and you made no correction, <strong>nothing is sent</strong>.</li>
   <li><strong>Anonymity:</strong> We never send your name, contacts, location, or raw device ID. For rough aggregate statistics only, we use a one‑way, irreversible hash of the device ID, which <strong>cannot be used to identify you</strong>.</li>
   <li><strong>How it's used:</strong> Collected corrections are used only to give the AI "good examples" or "things to avoid" for similar future inputs, improving accuracy and reducing repeated mistakes. This is sent to the same destination as parsing (Google Gemini API).</li>
   <li><strong>You can stop at any time</strong> by turning the same toggle off — nothing more will be sent afterward.</li>
@@ -160,7 +174,7 @@ AI parsing above, and none of it is sent to any external AI service.
   <li>An anonymous install ID (a random string generated the first time you launch the App; it is never linked to your name, email, device ID, or advertising ID, and changes if you delete and reinstall the App)</li>
 </ul>
 <p>
-<strong>This never includes any text you typed, the contents of your events/reminders, dates/times, or
+<strong>This never includes any text you typed, text read from images, the contents of your events/reminders, dates/times, or
 location.</strong> We do not track you across other companies' apps or websites, and we do not use advertising
 identifiers.
 </p>
@@ -227,9 +241,9 @@ can create, edit, and display events and reminders you have approved.
 <div class="card">
 <p>
 The App does not include any advertising SDKs or third‑party tracking SDKs. We never share your data with
-third parties for advertising or marketing purposes. Data leaves the App only in two ways: ① text you typed
+third parties for advertising or marketing purposes. Data leaves the App only in two ways: ① text you typed (or, for image import, text read from an image on your device — never the image itself)
 is sent to Google (Gemini API) for the sole purpose of parsing it, after you've consented in‑app (Sections
-2–3); ② anonymous usage statistics are sent to the Operator's own server to improve the App (Section 3‑3 —
+2, 2‑2 and 3); ② anonymous usage statistics are sent to the Operator's own server to improve the App (Section 3‑3 —
 this is not a third‑party disclosure).
 </p>
 </div>
@@ -249,12 +263,12 @@ If you have any questions about this policy, please contact us by email at
 
 
 <h1 id="terms">Sebastian Terms of Use (EULA)</h1>
-<p class="updated">Last updated: September 30, 2026</p>
+<p class="updated">Last updated: October 21, 2026</p>
 
 <div class="card">
 <h2 style="margin-top:0">Service description</h2>
 <p>
-"Sebastian" is a practical tool that parses free‑form text you enter (with your consent) using cloud AI, and
+"Sebastian" is a practical tool that parses free‑form text you enter, or text read from images on your device, (with your consent) using cloud AI, and
 — after you confirm the result — creates or edits events and reminders in the iOS Calendar and Reminders apps.
 You can also add and edit events/reminders manually at any time.
 </p>
@@ -263,7 +277,7 @@ You can also add and edit events/reminders manually at any time.
 <div class="card">
 <h2 style="margin-top:0">System requirements</h2>
 <p>
-Automatic AI parsing works via the cloud, sending your text to <strong>Google's Gemini API</strong> for every
+Automatic AI parsing works via the cloud, sending your text (or text read from an image on your device) to <strong>Google's Gemini API</strong> for every
 device and subscription tier. This only happens after you consent on an in‑app confirmation screen, and you
 can turn it off at any time from Settings (see Privacy Policy Sections 2–3). Because the free tier has a
 limited quota, parsing may be temporarily unavailable during busy periods or once you reach your daily limit.
