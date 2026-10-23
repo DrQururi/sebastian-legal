@@ -77,11 +77,12 @@ The App does <strong>not collect, transmit, or store</strong> the following:
   <li>Location data</li>
   <li>Contacts, your photo library, or other on‑device data (the only exception is <strong>the images you choose yourself</strong> in "Read events from images", which are loaded temporarily to be converted to text on your device; they are not stored and the image itself is never sent — Section 2‑2)</li>
   <li>The contents of events/reminders already saved in your calendar (see Section 4)</li>
-  <li>Advertising identifiers (IDFA) or any information used to track you across other companies' apps or websites</li>
+  <li>The text you type, text read from images, or the contents of your events/reminders, for the purpose of showing ads or tracking you (for advertising, see Section 5)</li>
 </ul>
 <p>
-Only two kinds of data are ever sent: ① <strong>the text you type or speak, or text read from an image on your device</strong>, for chat parsing (only after
+The Operator receives only two kinds of data: ① <strong>the text you type or speak, or text read from an image on your device</strong>, for chat parsing (only after
 consent — Sections 2, 2‑2 and 3), and ② <strong>anonymous usage statistics</strong> for app improvement (Section 3‑3).
+Separately, because the free plan shows a banner ad (Google AdMob), the App communicates with Google to serve ads (Section 5). The information used for ads never includes the text in ① or the contents of your events.
 </p>
 </div>
 
@@ -178,8 +179,7 @@ AI parsing above, and none of it is sent to any external AI service.
 </ul>
 <p>
 <strong>This never includes any text you typed, text read from images, the contents of your events/reminders, dates/times, or
-location.</strong> We do not track you across other companies' apps or websites, and we do not use advertising
-identifiers.
+location.</strong> These anonymous usage statistics do not use the advertising identifier (IDFA) and do not track you across other companies' apps or websites. See Section 5 for how ads are handled.
 </p>
 <p>
 You can turn this off at any time from Settings &gt; "Send usage data" (toggle "Send anonymous usage
@@ -243,8 +243,21 @@ can create, edit, and display events and reminders you have approved.
 <h2>5. Third parties &amp; advertising</h2>
 <div class="card">
 <p>
-The App does not include any advertising SDKs or third‑party tracking SDKs. We never share your data with
-third parties for advertising or marketing purposes. Data leaves the App only in two ways: ① text you typed (or, for image import, text read from an image on your device — never the image itself)
+<strong>Advertising (Google AdMob).</strong>
+On the free plan, the App shows a banner ad served by Google's advertising service, <strong>Google AdMob</strong> (an ad SDK), at the bottom of the screens (Calendar, Chat, Settings and others) in version 1.7.1 and later. Version 1.6.0 and earlier have no ads. Google is the ad provider.
+</p>
+<ul>
+  <li><strong>Consent first:</strong> Before any ad is shown, the first main screen presents (a) Google's consent form (Google UMP) in the European Economic Area and other regions where it is required, and (b) the iOS tracking permission prompt (App Tracking Transparency) in all regions. Until this is done, the ad SDK is not started and no ad is requested.</li>
+  <li><strong>If you allow tracking:</strong> Google may collect and use the advertising identifier (IDFA) and information about ad impressions and interactions in the App to deliver and measure ads and prevent fraud (ads may be personalized). You can change this at any time in iOS Settings &gt; Privacy &amp; Security &gt; Tracking.</li>
+  <li><strong>If you do not allow tracking:</strong> the IDFA is not used for ads, and non‑personalized ads are shown. <strong>Every feature of the App works the same either way.</strong></li>
+  <li><strong>Removing ads:</strong> subscribing to the in‑app subscription "Sebastian Pro" (no ads + up to 100 AI chat parses per month; see the Terms below) hides the ads, and no ads are requested.</li>
+  <li><strong>The text sent to AI is never used for ads:</strong> the text sent for chat parsing (Sections 2 and 3) and the contents of your events/reminders are never used to show or select ads or to track you, and are never passed to the ad SDK.</li>
+  <li>For how Google handles information, see Google's page "<a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites or apps that use our services</a>" and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
+  <li>The App includes no ad or tracking SDK other than Google AdMob.</li>
+</ul>
+<p>
+<strong>Other data sent outside the App.</strong>
+The Operator never shares your data with third parties for advertising or marketing purposes. Apart from the ads described above, data leaves the App only in two ways: ① text you typed (or, for image import, text read from an image on your device — never the image itself)
 is sent, for the sole purpose of parsing it, to Anthropic (Claude) in 1.9.3 and later or to Google (Gemini API) in 1.9.2 and earlier, after you've consented in‑app (Sections
 2, 2‑2 and 3); ② anonymous usage statistics are sent to the Operator's own server to improve the App (Section 3‑3 —
 this is not a third‑party disclosure).
@@ -291,21 +304,13 @@ In that case, or if you choose not to use parsing, you can still add and edit ev
 <div class="card">
 <h2 style="margin-top:0">Sebastian Pro (auto‑renewing subscription)</h2>
 <ul>
-  <li>"Sebastian Pro" is an optional <strong>auto‑renewing monthly subscription</strong>. Subscribing increases how many cloud parses you can use. The underlying AI service is the same one used by free users (Anthropic's Claude in 1.9.3 and later; Google's Gemini in 1.9.2 and earlier) — only the number of parses changes. Without a subscription, you still get a few free parses per day plus unlimited manual entry.</li>
-  <li>Term: 1 month / Price: <strong>$2.99 USD</strong> in the U.S. storefront (prices vary by store/region and are shown at the time of purchase).</li>
+  <li>"Sebastian Pro" is an optional <strong>auto‑renewing monthly subscription</strong>. Subscribing <strong>removes the banner ads</strong> and lets you use cloud AI chat parsing <strong>up to 100 times per month</strong>. The underlying AI service is the same one used by free users (Anthropic's Claude in 1.9.3 and later; Google's Gemini in 1.9.2 and earlier) — only the absence of ads and the number of parses change. Without a subscription, you still get up to 10 free parses per month (with ads) plus unlimited manual entry.</li>
+  <li>Term: 1 month / Price: <strong>¥100 per month (tax included) in the Japan storefront</strong> (prices vary by store/region and are shown at the time of purchase).</li>
+  <li>The former "Sebastian Pro" plan (¥500 per month, up to 30 AI parses per day) remains available only to people who already subscribe to it; it is not offered to new subscribers. Ads are likewise not shown to those subscribers.</li>
   <li>Payment is charged to your Apple ID at the time of purchase, and the subscription renews automatically at the same price unless cancelled at least 24 hours before the end of the current period.</li>
   <li>You may cancel at any time after purchase from iOS Settings &gt; Apple ID &gt; Subscriptions. Refunds for unused periods follow Apple's policies.</li>
   <li>Family Sharing is not supported.</li>
   <li>You can manage or restore your purchase from within the App under Settings &gt; "Sebastian Pro".</li>
-</ul>
-</div>
-
-<div class="card">
-<h2 style="margin-top:0">Calendar Pro (Ad-Free) (auto-renewing subscription)</h2>
-<ul>
-  <li>"Calendar Pro (Ad-Free)" is an optional <strong>auto‑renewing monthly subscription</strong> that hides the banner ad so you can see more of the calendar. It does not increase your daily AI parsing limit (for that, see "Sebastian Pro" above). It belongs to the same subscription group as "Sebastian Pro", so you can only be subscribed to one of the two at a time (subscribing to one switches you from the other).</li>
-  <li>Term: 1 month / Price: <strong>$0.99 USD</strong> in the U.S. storefront (prices vary by store/region and are shown at the time of purchase).</li>
-  <li>Payment, renewal, cancellation, and refunds follow the same terms as "Sebastian Pro" above.</li>
 </ul>
 </div>
 
