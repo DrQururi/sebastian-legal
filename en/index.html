@@ -53,7 +53,7 @@
 </div>
 
 <h1 id="privacy">Sebastian Privacy Policy</h1>
-<p class="updated">Last updated: October 21, 2026</p>
+<p class="updated">Last updated: October 23, 2026</p>
 
 <div class="card">
 <p>
@@ -61,8 +61,7 @@
 speaking or typing. The developer and operator of this App (the "Operator") takes your privacy seriously.
 <strong>The App does not require any account registration or sign‑in, and does not collect personal
 information such as your name, contact details, or location.</strong>
-Text parsing is performed using the cloud AI service <strong>Google Gemini</strong>, regardless of device type
-or subscription status (see below). Nothing is sent until you give in‑app consent beforehand.
+Text parsing is performed using a cloud AI service, regardless of device type or subscription status — <strong>Anthropic's Claude in version 1.9.3 and later, Google's Gemini in version 1.9.2 and earlier</strong> (see below). Nothing is sent until you give in‑app consent beforehand.
 In addition, the App sends <strong>anonymous usage statistics</strong> to the Operator's own server to help
 improve the App (you can turn this off at any time — see "3‑3. Anonymous usage statistics"). Details follow below.
 </p>
@@ -95,16 +94,13 @@ way for every device and for both free and paid users:
 <ul>
   <li>
     <strong>Cloud parsing (all devices, free and Pro alike):</strong>
-    Only the text you typed (or, for image import, the text read from the image on your device) is sent, via the Operator's relay server (Supabase), to
-    <strong>Google's Gemini API</strong>, and the parsed result is returned (see Section 3 below).
-    Most requests are handled on the free tier of the Gemini API; if that tier is congested or its limit is
-    reached, the Operator's own pay‑as‑you‑go backup key may be used instead (the destination, content, and
-    handling are identical either way).
-    "Sebastian Pro" subscribers get a higher daily number of parses, but use the exact same Gemini service as
-    free users.
+    Only the text you typed (or, for image import, the text read from the image on your device) is sent, via the Operator's relay server (Supabase), to a cloud AI service, and the parsed result is returned (see Section 3 below).
+    The destination depends on the App version:
+    <strong>version 1.9.3 and later send only to Anthropic's Claude</strong> (nothing is sent to Google), and
+    <strong>version 1.9.2 and earlier send to Google's Gemini API</strong>.
+    "Sebastian Pro" subscribers get a higher number of parses, but use the same AI service as free users.
     <br>Note: earlier versions used on‑device parsing, and a different AI service for Pro subscribers only.
-    To keep accuracy consistent, <strong>since September 30, 2026 every device and plan uses Google Gemini
-    exclusively</strong>.
+    Since September 30, 2026, version 1.9.2 and earlier use Google Gemini on every device and plan, and version 1.9.3 and later use Anthropic (Claude) instead.
   </li>
   <li>
     <strong>Without parsing:</strong> If you do not consent to the above, or if you are offline, you can still
@@ -119,28 +115,35 @@ way for every device and for both free and paid users:
 With the image button in the Chat screen you can choose photos, screenshots, or image files (up to 3 at a time), and the App lists the events it finds in them as candidates.
 </p>
 <ul>
-  <li><strong>Converting the image to text happens on your device (using Apple's text recognition).</strong> The image itself is never sent to the Operator or to Google, and is not stored (only a small thumbnail is kept in memory to display in the chat).</li>
-  <li>What is sent is <strong>only the text read from the image on your device</strong>. It goes to the same destination as cloud parsing in Section 3 (Google Gemini) and requires the same consent: nothing is sent before you consent or after you withdraw. If you had already consented before this feature existed, you are asked once, the first time you import an image.</li>
+  <li><strong>Converting the image to text happens on your device (using Apple's text recognition).</strong> The image itself is never sent to the Operator, Google, or Anthropic, and is not stored (only a small thumbnail is kept in memory to display in the chat).</li>
+  <li>What is sent is <strong>only the text read from the image on your device</strong>. It goes to the same destination as cloud parsing in Section 3 (Anthropic in 1.9.3 and later, Google in 1.9.2 and earlier) and requires the same consent: nothing is sent before you consent or after you withdraw. If you had already consented before this feature existed, you are asked once, the first time you import an image.</li>
   <li>Photos are chosen with the standard iOS photo picker, so <strong>the App does not ask for access to your whole photo library</strong>; only the images you pick are loaded. The same applies to "Choose from Files", "Use image from clipboard", and drag &amp; drop — only images you deliberately provide are used.</li>
   <li>There is a limit (6,000 characters) on how much text is sent per request; anything beyond it is not sent.</li>
   <li>If an image shows other people's names or similar, that text may be included in the recognized text and sent. Please take care with images containing other people's information.</li>
 </ul>
 </div>
 
-<h2>3. About cloud parsing (Google Gemini)</h2>
+<h2>3. About cloud parsing (Anthropic Claude / Google Gemini)</h2>
 <div class="card">
 <p>
-Whenever chat parsing is used, <strong>the text you typed (or, for image import, the text read from your image on your device) is sent to Google's servers</strong>, regardless of
+Whenever chat parsing is used, <strong>the text you typed (or, for image import, the text read from your image on your device) is sent to an external AI service's servers</strong>, regardless of
 your device or subscription status. Because this is not an on‑device process, we disclose the following:
 </p>
 <ul>
-  <li><strong>We ask for your in‑app consent before anything is sent.</strong> The first time cloud parsing is needed, an in‑app screen clearly states what is sent (only the text you typed, or text read from an image on your device; the image itself is never sent) and where it goes (the Google Gemini API), and asks for your consent. <strong>Nothing is sent until you consent.</strong> You can withdraw consent at any time from Settings &gt; External AI Parsing (Cloud) — after withdrawing, nothing more is sent.</li>
+  <li><strong>The destination depends on the App version.</strong>
+    <strong>Version 1.9.3 and later: Anthropic's Claude only</strong> (nothing is sent to Google).
+    <strong>Version 1.9.2 and earlier: Google's Gemini API.</strong>
+    In version 1.9.3 we changed the AI parsing destination from Google (Gemini) to Anthropic (Claude).</li>
+  <li><strong>We ask for your in‑app consent before anything is sent.</strong> The first time cloud parsing is needed, an in‑app screen clearly states what is sent (only the text you typed, or text read from an image on your device; the image itself is never sent) and where it goes (in 1.9.3 and later, Anthropic's Claude), and asks for your consent. <strong>Nothing is sent until you consent.</strong>
+    <strong>If you consented to AI parsing in version 1.9.2 or earlier, you will be asked again, once, the first time you use AI parsing after updating to 1.9.3, because the destination has changed.</strong> If you decline, nothing is sent and chat AI parsing is unavailable, but the rest of the App — including adding and editing events manually — keeps working.
+    You can withdraw consent at any time in the App's Settings (Settings &gt; AI Parsing (Claude) in 1.9.3 and later; Settings &gt; AI Parsing (Google Gemini) in 1.9.2 and earlier) — after withdrawing, nothing more is sent.</li>
   <li>Only <strong>the text to be parsed</strong> is sent (for image import, the text read from the image on your device). The image itself is never sent. We never send the name, contacts, calendar contents, or location that the App collects from your device. Note that text visible in an image (for example another person's name) may be sent as text so that events can be read from it.</li>
-  <li>Most parsing happens on <strong>Google's free tier (Gemini API free usage tier)</strong>. Under the free tier's terms, submitted content <strong>may be used by Google to improve its services and models</strong>. Please avoid entering sensitive information. If the free tier is congested or its limit is reached, the Operator's own pay‑as‑you‑go backup key may be used, but the destination, content, and purpose remain unchanged. Google's handling of this data is governed by the <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Gemini API Additional Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
-  <li>"Sebastian Pro" subscribers are sent to the same Google Gemini API. Subscribers simply get more parses per day than free users — what is sent, where it goes, and how it is handled are identical.</li>
-  <li>To stay within the free tier and manage usage limits, the relay server assigns an <strong>anonymous random ID per device</strong>. This ID cannot be used to identify you personally.</li>
+  <li><strong>[1.9.3 and later: Anthropic (Claude)]</strong> According to Anthropic's published information (Privacy Center), inputs and outputs received through its API are not used to train its models by default (<a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training" target="_blank" rel="noopener">Is my data used for model training?</a>). Anthropic also states that, for its API, inputs and outputs are automatically deleted within 30 days of receipt or generation, except where retention is needed to enforce its usage policy or is required by law (<a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data" target="_blank" rel="noopener">How long do you store my organization’s data?</a>). Anthropic's handling of data is governed by its <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://www.anthropic.com/legal/commercial-terms" target="_blank" rel="noopener">Commercial Terms</a>. Anthropic's published information may change.</li>
+  <li><strong>[1.9.2 and earlier: Google (Gemini)]</strong> Most parsing happens on <strong>Google's free tier (Gemini API free usage tier)</strong>. Under the free tier's terms, submitted content <strong>may be used by Google to improve its services and models</strong>. Please avoid entering sensitive information. If the free tier is congested or its limit is reached, the Operator's own pay‑as‑you‑go backup key may be used, but the destination, content, and purpose remain unchanged. Google's handling of this data is governed by the <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Gemini API Additional Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
+  <li>"Sebastian Pro" subscribers are sent to the same destination as free users for their App version. Subscribers simply get more parses than free users — what is sent, where it goes, and how it is handled are identical.</li>
+  <li>To manage usage limits, the relay server assigns an <strong>anonymous random ID per device</strong>. This ID cannot be used to identify you personally.</li>
   <li>The Operator does not store, analyze, or share your text with any third party beyond relaying it for parsing.</li>
-  <li>If you don't want to use cloud parsing, choose "Not now" on the consent screen, or turn it off from Settings &gt; External AI Parsing (Cloud). You can still add events manually from the "+" button without using chat, with full functionality (and in that case nothing is ever sent externally).</li>
+  <li>If you don't want to use cloud parsing, choose "Not now" on the consent screen, or turn it off in Settings (AI Parsing (Claude) in 1.9.3 and later). You can still add events manually from the "+" button without using chat, with full functionality (and in that case nothing is ever sent externally).</li>
 </ul>
 </div>
 
@@ -149,13 +152,13 @@ your device or subscription status. Because this is not an on‑device process, 
 <p>
 The App has an <strong>optional feature</strong> that helps gradually improve parsing accuracy for everyone.
 It is only active if you explicitly turn on the "<strong>Help improve parsing</strong>" toggle inside
-Settings &gt; External AI Parsing (Cloud). <strong>It is off by default</strong>, and nothing related to this
+the App's Settings (AI Parsing (Claude) in 1.9.3 and later; AI Parsing (Google Gemini) in 1.9.2 and earlier). <strong>It is off by default</strong>, and nothing related to this
 feature is ever sent while it is off.
 </p>
 <ul>
   <li><strong>What is sent:</strong> Only when you correct and re‑save an AI parsing result do we send three pieces of data: the text you typed (or the text read from an image), the AI's original (incorrect) result, and the corrected result you confirmed. If the AI was already correct and you made no correction, <strong>nothing is sent</strong>.</li>
   <li><strong>Anonymity:</strong> We never send your name, contacts, location, or raw device ID. For rough aggregate statistics only, we use a one‑way, irreversible hash of the device ID, which <strong>cannot be used to identify you</strong>.</li>
-  <li><strong>How it's used:</strong> Collected corrections are used only to give the AI "good examples" or "things to avoid" for similar future inputs, improving accuracy and reducing repeated mistakes. This is sent to the same destination as parsing (Google Gemini API).</li>
+  <li><strong>How it's used:</strong> Collected corrections are used only to give the AI "good examples" or "things to avoid" for similar future inputs, improving accuracy and reducing repeated mistakes. In 1.9.2 and earlier, this goes to the same destination as parsing (Google Gemini API). In 1.9.3 and later, corrections are stored anonymously on the Operator's server and are not sent to Google (in 1.9.3 you are also asked again whether to turn this feature on; it is off by default).</li>
   <li><strong>You can stop at any time</strong> by turning the same toggle off — nothing more will be sent afterward.</li>
 </ul>
 </div>
@@ -242,7 +245,7 @@ can create, edit, and display events and reminders you have approved.
 <p>
 The App does not include any advertising SDKs or third‑party tracking SDKs. We never share your data with
 third parties for advertising or marketing purposes. Data leaves the App only in two ways: ① text you typed (or, for image import, text read from an image on your device — never the image itself)
-is sent to Google (Gemini API) for the sole purpose of parsing it, after you've consented in‑app (Sections
+is sent, for the sole purpose of parsing it, to Anthropic (Claude) in 1.9.3 and later or to Google (Gemini API) in 1.9.2 and earlier, after you've consented in‑app (Sections
 2, 2‑2 and 3); ② anonymous usage statistics are sent to the Operator's own server to improve the App (Section 3‑3 —
 this is not a third‑party disclosure).
 </p>
@@ -263,7 +266,7 @@ If you have any questions about this policy, please contact us by email at
 
 
 <h1 id="terms">Sebastian Terms of Use (EULA)</h1>
-<p class="updated">Last updated: October 21, 2026</p>
+<p class="updated">Last updated: October 23, 2026</p>
 
 <div class="card">
 <h2 style="margin-top:0">Service description</h2>
@@ -277,10 +280,10 @@ You can also add and edit events/reminders manually at any time.
 <div class="card">
 <h2 style="margin-top:0">System requirements</h2>
 <p>
-Automatic AI parsing works via the cloud, sending your text (or text read from an image on your device) to <strong>Google's Gemini API</strong> for every
+Automatic AI parsing works via the cloud, sending your text (or text read from an image on your device) to a cloud AI service (<strong>Anthropic's Claude</strong> in 1.9.3 and later; Google's Gemini API in 1.9.2 and earlier) for every
 device and subscription tier. This only happens after you consent on an in‑app confirmation screen, and you
-can turn it off at any time from Settings (see Privacy Policy Sections 2–3). Because the free tier has a
-limited quota, parsing may be temporarily unavailable during busy periods or once you reach your daily limit.
+can turn it off at any time from Settings (see Privacy Policy Sections 2–3). Because capacity is
+limited, parsing may be temporarily unavailable during busy periods or once you reach your usage limit.
 In that case, or if you choose not to use parsing, you can still add and edit events/reminders manually.
 </p>
 </div>
@@ -288,7 +291,7 @@ In that case, or if you choose not to use parsing, you can still add and edit ev
 <div class="card">
 <h2 style="margin-top:0">Sebastian Pro (auto‑renewing subscription)</h2>
 <ul>
-  <li>"Sebastian Pro" is an optional <strong>auto‑renewing monthly subscription</strong>. Subscribing removes the daily limit on cloud parsing (Google Gemini). The underlying AI service is the same Gemini used by free users — only the number of daily parses changes. Without a subscription, you still get a few free parses per day plus unlimited manual entry.</li>
+  <li>"Sebastian Pro" is an optional <strong>auto‑renewing monthly subscription</strong>. Subscribing increases how many cloud parses you can use. The underlying AI service is the same one used by free users (Anthropic's Claude in 1.9.3 and later; Google's Gemini in 1.9.2 and earlier) — only the number of parses changes. Without a subscription, you still get a few free parses per day plus unlimited manual entry.</li>
   <li>Term: 1 month / Price: <strong>$2.99 USD</strong> in the U.S. storefront (prices vary by store/region and are shown at the time of purchase).</li>
   <li>Payment is charged to your Apple ID at the time of purchase, and the subscription renews automatically at the same price unless cancelled at least 24 hours before the end of the current period.</li>
   <li>You may cancel at any time after purchase from iOS Settings &gt; Apple ID &gt; Subscriptions. Refunds for unused periods follow Apple's policies.</li>
